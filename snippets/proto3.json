@@ -1,15 +1,15 @@
 {
-	".source.go": {
-		"syntax proto3": {
-			"prefix": "sp3",
+    ".source.go": {
+        "syntax proto3": {
+            "prefix": "sp3",
             "description": "proto3 syntax",
-			"body": "syntax = \"proto3\";"
-		},
+            "body": "syntax = \"proto3\";"
+        },
         "syntax proto2": {
-			"prefix": "sp2",
+            "prefix": "sp2",
             "description": "proto2 syntax",
-			"body": "syntax = \"proto2\";"
-		},
+            "body": "syntax = \"proto2\";"
+        },
         "package": {
             "prefix": "pkg",
             "description": "package specifier",
@@ -58,7 +58,7 @@
         "message": {
             "prefix": "msg",
             "description": "message",
-            "body": "message ${1:MessageName} {\n}"
+            "body": "message ${1:MessageName} {\n\t$0\n}"
         },
         "bool field": {
             "prefix": "fbo",
@@ -143,22 +143,22 @@
         "oneof field": {
             "prefix": "foo",
             "description": "oneof field",
-            "body": "oneof ${3:name} {\n}"
+            "body": "oneof ${3:name} {\n\t$0\n}"
         },
         "enum": {
             "prefix": "en",
             "description": "enum",
-            "body": "enum ${3:EnumName} {\n}"
+            "body": "enum ${1:EnumName} {\n\t ${2:EnumFiled} = 0;$0\n}"
         },
         "service": {
             "prefix": "sv",
             "description": "service",
-            "body": "service ${1:ServiceName} {\n}"
+            "body": "service ${1:ServiceName} {\n\t$0\n}"
         },
         "method": {
             "prefix": "rpc",
             "description": "service method",
             "body": "rpc ${1:MethodName} (${2:Request}) returns (${3:Response});"
         }
-	}
+    }
 }
